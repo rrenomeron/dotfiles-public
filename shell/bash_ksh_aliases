@@ -1,0 +1,11 @@
+
+# $Id: .sh_alias,v 1.2 2001/11/03 21:33:21 renomero Exp $
+# This is .sh.alias, the account-independent alias file for bash and
+# ksh.
+alias lo=logout
+alias where=type
+
+# Insert local aliases here 
+if [ -f ~/.sh_alias_local ]; then
+	. ~/.sh_alias_local
+fi

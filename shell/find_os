@@ -1,0 +1,24 @@
+if [ -f /etc/os-release ]; then
+    # freedesktop.org and systemd
+    . /etc/os-release
+    OS="$NAME $VERSION_ID"
+elif type lsb_release >/dev/null 2>&1; then
+    # linuxbase.org
+    OS="$(lsb_release -si) $(lsb_release -sr)"
+elif [ -f /etc/lsb-release ]; then
+    # For some versions of Debian/Ubuntu without lsb_release command
+    . /etc/lsb-release
+    OS="$DISTRIB_ID $DISTRIB_RELEASE"
+elif [ -f /etc/debian_version ]; then
+    # Older Debian/Ubuntu/etc.
+    OS="Debian $(cat /etc/debian_version)"
+elif [ -f /etc/SuSe-release ]; then
+    # Older SuSE/etc.
+    OS=SuSE
+elif [ -f /etc/redhat-release ]; then
+    # Older Red Hat, CentOS, etc.
+    OS=`cat /etc/redhat-release`
+else
+    # Fall back to uname, e.g. "Linux", also works for BSD, etc.
+    OS=`uname -s`
+fi

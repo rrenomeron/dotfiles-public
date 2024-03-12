@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# This is a customized Bourne Again Shell initialization file.
+# It's meant to be portable across most Unixes.
+# To use this, include the following block towards the end of your
+# .bashrc file:
+
+# if [ -f ~/dotfiles/shell/bashrc ]; then
+# 	. ~/dotfiles/shell/bashrc
+# fi
+
+
+# 1. ENVIRONMENT VARIABLES
+
+# We don't want to have a history file lying around.
+HISTFILE=
+
+# Let's leave the editor setting to the local system
+# EDITOR=vi
+# VISUAL=vi
+# ALTERNATE_EDITOR=emacs
+
+# 2. COMMAND PROMPT
+# The default prompt is bash-$BASH_VERSION, but we'd like something a
+# little more useful than that.  Namely, we want to show the hostname
+# (\h), the command number (\!), and our working directory (\w).
+# Recent Debian/Ubuntu releases do a nice little color prompt; however
+# we want the text to be a little different.  We steal most of the code here,
+# but slightly massage things to be the way we like them.
+# case $TERM in
+# 	xterm*)
+# 		PS1="\[\033]0;\w/ - [\u@\h]\007\]\[\033]0;\w/ - [\u@\h]\007\]\n\[\033[1m\][\u@\h \!] \[\033[0m\] \w/ \nbash >"
+# 		;;
+# 	*)
+# 		PS1="\\n\[\033[1m\][\u@\h \!] \[\033[0m\] \w/ \nbash >"
+# 		;;
+# esac
+force_color_prompt=yes
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\][\u@\h \!] \[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\nbash\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}[\u@\h \!] \w\nbash$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)} \w - [\u@\h] \a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# 3. KEYBINDINGS
+
+# 4. ALIASES
+# We share our aliases with ksh, so the alias file is called 'bash_ksh_aliases'.
+# We will only source it if it exists, so bash's startup will be silent.
+# We'll also source local aliases if we have them
+if [ -f ~/dotfiles/shell/bash_ksh_aliases ]; then
+	. ~/dotfiles/shell/bash_ksh_aliases
+fi
+
+# Find out what OS we're running, then set up a "version" command
+. ~/dotfiles/shell/find_os
+alias ver='echo "This is bash, the GNU Bourne Again Shell Version $BASH_VERSION ";
+           echo "Running on $OS with Kernel `uname -srm`"'
+#  ... then display it if we're interactive (i.e. stdout, or fd 1, is
+# connected to a terminal).
+if [ -t 1 ]; then
+   ver
+fi
+
+# End of .bashrc

@@ -1,0 +1,8 @@
+If emacs loaded dotfiles/emacs/emacs_config.el, these themes should
+be automatically available, at least in Emacs 24 and up.
+Load the themes with the following bit of lisp:
+
+(load-theme '$NAME t)
+
+in your .emacs or in scratch buffer.  Or use 'Custom Themes' under
+the Options->Customize Emacs menu option.
