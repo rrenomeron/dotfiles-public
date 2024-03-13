@@ -22,7 +22,10 @@
 (add-hook 'mail-mode-hook 'my-flyspell-mode)
 
 ;;; Turn on line numbers
-(global-linum-mode 1)
+(if (version< emacs-version "26.1")
+    (global-linnum-mode 1)
+    (global-display-line-numbers-mode 1))
+
 ;;; When in C-mode, want all bells and whistles...
 (setq c-auto-newline t)
 
