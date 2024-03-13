@@ -15,10 +15,11 @@
 # We don't want to have a history file lying around.
 HISTFILE=
 
-# Let's leave the editor setting to the local system
-# EDITOR=vi
-# VISUAL=vi
-# ALTERNATE_EDITOR=emacs
+# If we have VSCode available, then let's use it as our default editor
+if command -v code > /dev/null 2>&1; then
+    EDITOR="code --wait"
+    VISUAL=$EDITOR
+fi
 
 # 2. COMMAND PROMPT
 # The default prompt is bash-$BASH_VERSION, but we'd like something a
