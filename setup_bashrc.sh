@@ -2,8 +2,8 @@
 
 
 echo "" >> ~/.bashrc
-echo "if [ -f ~/dotfiles/shell/bashrc ]; then" >> ~/.bashrc
-echo " 	. ~/dotfiles/shell/bashrc" >> ~/.bashrc
+echo "if [ -f ~/dotfiles-public/shell/bashrc ]; then" >> ~/.bashrc
+echo " 	. ~/dotfiles-public/shell/bashrc" >> ~/.bashrc
 echo "fi" >> ~/.bashrc
 
 echo "The next shell you start will be set up with our bashrc setup"

@@ -3,7 +3,7 @@
 ; This file should be loaded from .emacs (the main init file) with
 ; the command:
 ; 
-; (load "~/dotfiles/emacs/emacs_config")
+; (load "~/dotfiles-public/emacs/emacs_config")
 ; 
 ; This file can also be byte-compiled to speed up initialization.
 
@@ -55,9 +55,9 @@
   ;; this means we're Emacs 23, so we need to define it ...
   (defvar custom-theme-load-path ()
   ;; ... and also set custom-theme directory so our themes will work
-  (setq custom-theme-directory "~/dotfiles/emacs/themes")))
+  (setq custom-theme-directory "~/dotfiles-public/emacs/themes")))
 (add-to-list 'custom-theme-load-path
-			 "~/dotfiles/emacs/themes")
+			 "~/dotfiles-public/emacs/themes")
 
 
 ;;;; 2. ADDITIONAL PACKAGES

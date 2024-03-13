@@ -5,8 +5,8 @@
 # To use this, include the following block towards the end of your
 # .bashrc file:
 
-# if [ -f ~/dotfiles/shell/bashrc ]; then
-# 	. ~/dotfiles/shell/bashrc
+# if [ -f ~/dotfiles-public/shell/bashrc ]; then
+# 	. ~/dotfiles-public/shell/bashrc
 # fi
 
 
@@ -69,12 +69,12 @@ esac
 # We share our aliases with ksh, so the alias file is called 'bash_ksh_aliases'.
 # We will only source it if it exists, so bash's startup will be silent.
 # We'll also source local aliases if we have them
-if [ -f ~/dotfiles/shell/bash_ksh_aliases ]; then
-	. ~/dotfiles/shell/bash_ksh_aliases
+if [ -f ~/dotfiles-public/shell/bash_ksh_aliases ]; then
+	. ~/dotfiles-public/shell/bash_ksh_aliases
 fi
 
 # Find out what OS we're running, then set up a "version" command
-. ~/dotfiles/shell/find_os
+. ~/dotfiles-public/shell/find_os
 alias ver='echo "This is bash, the GNU Bourne Again Shell Version $BASH_VERSION ";
            echo "Running on $OS with Kernel `uname -srm`"'
 #  ... then display it if we're interactive (i.e. stdout, or fd 1, is
