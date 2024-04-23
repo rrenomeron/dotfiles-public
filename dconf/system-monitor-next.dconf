@@ -1,0 +1,7 @@
+[/org/gnome/shell/extensions/system-monitor]
+cpu-graph-width=20
+disk-display=true
+disk-graph-width=20
+icon-display=false
+memory-graph-width=20
+net-graph-width=20
