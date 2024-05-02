@@ -19,6 +19,7 @@ HISTFILE=
 if command -v code > /dev/null 2>&1; then
     EDITOR="code --wait"
     VISUAL=$EDITOR
+    SUDO_EDITOR=$EDITOR
 fi
 
 # 2. COMMAND PROMPT
