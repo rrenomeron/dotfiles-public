@@ -22,3 +22,6 @@ else
     # Fall back to uname, e.g. "Linux", also works for BSD, etc.
     OS=`uname -s`
 fi
+if [ -n "$CONTAINER_NAME" ]; then
+    OS="$OS ⬢"
+fi
