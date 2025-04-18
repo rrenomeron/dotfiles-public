@@ -77,8 +77,11 @@ fi
 
 # Find out what OS we're running, then set up a "version" command
 . ~/dotfiles-public/shell/find_os
-alias ver='echo "This is bash, the GNU Bourne Again Shell Version $BASH_VERSION ";
-           echo "Running on $OS with Kernel `uname -srm`"'
+alias ver='echo
+           echo "This is bash, the GNU Bourne Again Shell Version $BASH_VERSION ";
+           echo "Running on $OS"
+           echo "Kernel `uname -srm`"
+           echo'
 #  ... then display it if we're interactive (i.e. stdout, or fd 1, is
 # connected to a terminal).
 if [ -t 1 ]; then
