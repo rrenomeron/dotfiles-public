@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+if [ -n "$CONTAINER_ID" ]; then
+    # This is distrobox/boxbudddy
+    CONTAINER_NAME=$CONTAINER_ID
+elif [ -f /run/.toolboxenv ]; then
+    # This is Fedora Toolbx
+    # See https://discussion.fedoraproject.org/t/fedora-silverblue-39-toolboox-show-toolbox-container-name-on-bash-ps1/111532/2
+    CONTAINER_NAME=$(cat /run/.containerenv | grep -E '^name="' | cut -d \" -f 2)
+fi
+
+if [ -n "$CONTAINER_NAME" ]; then
+    PROMPT_HOST="$HOSTNAME (⬢ $CONTAINER_NAME)"
+else
+    PROMPT_HOST=$HOSTNAME
+fi
