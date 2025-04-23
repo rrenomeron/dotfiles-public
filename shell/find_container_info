@@ -10,7 +10,6 @@ elif [ -f /run/.toolboxenv ]; then
 fi
 
 if [ -n "$CONTAINER_NAME" ]; then
-    PROMPT_HOST="$HOSTNAME (📦 $CONTAINER_NAME)"
-else
-    PROMPT_HOST=$HOSTNAME
+    PROMPT_CONTAINER="📦 [$CONTAINER_NAME] "
+    PROMPT_CONTAINER_XTERM=" ($CONTAINER_NAME) "
 fi

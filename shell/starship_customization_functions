@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+# Shell functions to assist wtih starship customization
+
+# The command number so easily accessible with \! in the conventional shell prompt
+# is not accessible to Starship, since the $HISTCMD variable never leaves the shell.
+# So instead we use a "pre-prompt" command to pass the variable in to Starship.
+# This is run on each prompt update, so the value is always current.
+#
+# See https://starship.rs/advanced-config/#custom-pre-prompt-and-pre-execution-commands-in-bash
+# for details.
+#
+
+function pass_command_num() {
+    export STARSHIP_CMD_NUM=$HISTCMD
+}
+starship_precmd_user_func="pass_command_num"
+

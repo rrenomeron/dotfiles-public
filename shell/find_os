@@ -23,5 +23,5 @@ else
     OS=`uname -s`
 fi
 if [ -n "$CONTAINER_NAME" ]; then
-    OS="$OS 📦"
+    OS="$OS $PROMPT_CONTAINER"
 fi

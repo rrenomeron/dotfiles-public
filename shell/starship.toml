@@ -1,0 +1,55 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = '$username$hostname${env_var.STARSHIP_CMD_NUM}$directory$all$cmd_duration$status$container$shell$character'
+
+[line_break]
+disabled = false
+
+[username]
+style_user = 'green bold'
+style_root = 'red bold'
+format = '[\[](green bold)[$user]($style)'
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+ssh_symbol = "  "
+format = '@[$hostname](green bold)[$ssh_symbol](bold gray) '
+disabled = false
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[✗](bold red)'
+
+[directory]
+truncation_length = 0
+
+[container]
+symbol='📦'
+format='[$symbol \[$name\]](bold blue dimmed) '
+
+[cmd_duration]
+format = '''Last command took [$duration
+](bold yellow)'''
+
+[status]
+format="""[Last command failed with status $status
+](bold red)"""
+disabled = false
+
+[env_var.STARSHIP_CMD_NUM]
+format = '[$env_value](bold gray)[\]](bold green) '
+default = '0'
+
+[shell]
+bash_indicator = 'bash'
+tcsh_indicator = 'tcsh'
+powershell_indicator = ' ps'
+disabled = false
+
+
+
