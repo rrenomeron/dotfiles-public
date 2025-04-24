@@ -50,6 +50,7 @@ bash_indicator = 'bash'
 tcsh_indicator = 'tcsh'
 powershell_indicator = ' ps'
 disabled = false
+style = "[$indicator](white)"
 
 
 
