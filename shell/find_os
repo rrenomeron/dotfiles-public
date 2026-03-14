@@ -25,3 +25,9 @@ fi
 if [ -n "$CONTAINER_NAME" ]; then
     OS="$OS $PROMPT_CONTAINER"
 fi
+
+if command -v rpm-ostree > /dev/null; then
+    BOOTC_JSON=$(rpm-ostree status --json)
+    BOOTC_IMAGE=$(echo "$BOOTC_JSON" | jq -r '.deployments.[] | select (.booted == true)."container-image-reference"')
+    BOOTC_IMAGE_VERSION=$(echo "$BOOTC_JSON" | jq -r '.deployments.[] | select (.booted == true)'.version)
+fi

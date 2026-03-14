@@ -85,6 +85,10 @@ alias ver='echo
            echo "This is bash, the GNU Bourne Again Shell Version $BASH_VERSION ";
            echo "Running on $OS"
            echo "Kernel `uname -srm`"
+           if [ -n "$BOOTC_IMAGE" ]; then
+            echo bootc Image: "$BOOTC_IMAGE"
+            echo Image Version: "$BOOTC_IMAGE_VERSION"
+           fi
            echo'
 #  ... then display it if we're interactive (i.e. stdout, or fd 1, is
 # connected to a terminal).
