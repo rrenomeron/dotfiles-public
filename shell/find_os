@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
     . /etc/os-release
@@ -17,10 +18,10 @@ elif [ -f /etc/SuSe-release ]; then
     OS=SuSE
 elif [ -f /etc/redhat-release ]; then
     # Older Red Hat, CentOS, etc.
-    OS=`cat /etc/redhat-release`
+    OS=$(cat /etc/redhat-release)
 else
     # Fall back to uname, e.g. "Linux", also works for BSD, etc.
-    OS=`uname -s`
+    OS=$(uname -s)
 fi
 if [ -n "$CONTAINER_NAME" ]; then
     OS="$OS $PROMPT_CONTAINER"
