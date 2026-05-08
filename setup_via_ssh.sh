@@ -26,7 +26,7 @@ fi
 if [ -x "$HOME/dotfiles-public/setup_bashrc.sh" ]; then
     $HOME/dotfiles-public/setup_bashrc.sh
 else
-    echo "No Bash setup script in dotfiles directory
+    echo "No Bash setup script in dotfiles directory"
     exit 1
 fi
 
